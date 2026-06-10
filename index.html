@@ -3,3 +3,86 @@
 <h1>Welcome to Pawan's Website</h1>
 <p>Main abhi phone par hacking aur web development seekh raha hoon!</p>
 
+!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pawan Coder - Cyber Terminal</title>
+    <style>
+        body {
+            background-color: #050505;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .terminal {
+            text-align: center;
+            border: 2px solid #00ff00;
+            padding: 30px;
+            background: rgba(0, 255, 0, 0.05);
+            box-shadow: 0 0 20px #00ff00;
+            border-radius: 10px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: blink 1.5s infinite;
+        }
+        p {
+            font-size: 1.2rem;
+            color: #ffffff;
+        }
+        .btn {
+            background-color: #00ff00;
+            color: #000000;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 0 10px #00ff00;
+            text-transform: uppercase;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #00cc00;
+            box-shadow: 0 0 20px #00cc00;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="terminal">
+        <h1>System Override Active</h1>
+        <p>Welcome to Pawan's Live Cyber Network</p>
+        
+        <audio id="cyberSound" loop>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        </audio>
+
+        <button class="btn" onclick="playCyberSound()">Bypass Firewall & Enter</button>
+    </div>
+
+    <script>
+        function playCyberSound() {
+            var audio = document.getElementById("cyberSound");
+            audio.play();
+            alert("🔥 Cyber System Initialized! Welcome, Pawan is watching you.");
+        }
+    </script>
+
+</body>
+</html>
