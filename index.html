@@ -1,7 +1,4 @@
-<h1>Welcome to Pawan's Website</h1>
-<p>Main abhi phone par hacking aur web development seekh raha hoon!</p>
-
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
@@ -29,7 +26,7 @@
             border-radius: 10px;
         }
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             text-transform: uppercase;
             letter-spacing: 3px;
             animation: blink 1.5s infinite;
@@ -75,5 +72,14 @@
     </div>
 
     <script>
-        function playC
-            
+        function playCyberSound() {
+            var audio = document.getElementById("cyberSound");
+            audio.play().catch(function(error) {
+                console.log("Play failed:", error);
+            });
+            alert("🔥 Cyber System Initialized! Welcome, Pawan is watching you.");
+        }
+    </script>
+
+</body>
+</html>
