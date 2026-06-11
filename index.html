@@ -1,74 +1,206 @@
-██╔══██╗██╔══██╗██║    ██║██╔══██╗████╗  ██║<br>
-                ██████╔╝███████║██║ █╗ ██║███████║██╔██╗ ██║<br>
-                ██╔═══╝ ██╔══██║██║███╗██║██╔══██║██║╚██╗██║<br>
-                ██║     ██║  ██║╚███╔███╔╝██║  ██║██║ ╚████║<br>
-                ╚═╝     ╚═╝  ╚═╝ ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═══╝
-            </div>
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pawan Coder - Cyber Terminal</title>
+    <style>
+        body {
+            background-color: #050505 !important;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            transition: background-color 0.3s ease;
+        }
+        .terminal-box {
+            width: 90%;
+            max-width: 600px;
+            background: #000000;
+            border: 2px solid #00ff00;
+            box-shadow: 0 0 25px rgba(0, 255, 0, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            box-sizing: border-box;
+            transition: all 0.5s ease;
+        }
+        .termux-header {
+            border-bottom: 1px solid #222;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            font-size: 0.85rem;
+            color: #888;
+            display: flex;
+            justify-content: space-between;
+        }
+        .rainbow-text {
+            font-weight: bold;
+            font-size: 0.7rem; /* Phone screen ke liye size chhota kiya taaki text na tute */
+            line-height: 1.2;
+            color: #00ff00;
+            text-shadow: 0 0 5px #00ff00;
+            margin-bottom: 15px;
+            white-space: pre;
+            overflow-x: auto;
+        }
+        .console-screen {
+            height: 200px;
+            overflow-y: auto;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #00ff00;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .btn-container {
+            text-align: center;
+        }
+        .btn {
+            background-color: #00ff00;
+            color: #000000;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 0 15px #00ff00;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .btn:hover {
+            background-color: #00cc00;
+            box-shadow: 0 0 25px #00cc00;
+        }
+        /* Red Alert Danger Look */
+        .danger-alert {
+            display: none;
+            color: #ff0000;
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            animation: flash 0.5s infinite;
+            margin-bottom: 20px;
+        }
+        @keyframes flash {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        /* Hidden Profile Card */
+        .profile-card {
+            display: none;
+            text-align: center;
+            animation: blastOpen 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+        .my-pic {
+            width: 180px;
+            height: 180px;
+            border-radius: 15px;
+            border: 3px solid #ff0055;
+            box-shadow: 0 0 25px #ff0055;
+            object-fit: cover;
+            margin-top: 10px;
+        }
+        @keyframes blastOpen {
+            0% { transform: scale(0.3); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="danger-alert" id="redAlert">
+        ⚠️ WARNING: SYSTEM BREACHED BY PAWAN ⚠️
+    </div>
+
+    <div class="terminal-box" id="mainBox">
+        
+        <div class="termux-header" id="topBar">
+            <span>session: #1 (pawan@cybernet)</span>
+            <span>status: active 🔋90%</span>
+        </div>
+
+        <div id="terminalContent">
+            <div class="rainbow-text">
+██████╗  █████╗ ██╗    ██╗ ████╗ ███╗   ██╗
+██╔══██╗██╔══██╗██║    ██║██╔══██╗████╗  ██║
+██████╔╝███████║██║ █╗ ██║███████║██╔██╗ ██║
+██╔═══╝ ██╔══██║██║███╗██║██╔══██║██║╚██╗██║
+██║     ██║  ██║╚███╔███╔╝██║  ██║██║ ╚████║
+╚═╝     ╚═╝  ╚═╝ ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═══╝</div>
 
             <div class="console-screen" id="logScreen">
-                <span style="color: #888;"># Type command or initialize tool below...</span><br>
-                pawan@cybernet:~# python panel.py<br>
-                [SYSTEM] Ready to launch hack panel...
+                <span style="color: #888;"># System ready for override...</span><br>
+                pawan@cybernet:~# python advance_panel.py<br>
+                [SYSTEM] Awaiting user initialization click...
             </div>
 
             <div class="btn-container">
-                <button class="btn" id="hackBtn" onclick="triggerDhamaka()">Run Hack Panel</button>
+                <button class="btn" id="hackBtn" onclick="triggerSuperDhamaka()">Launch Super Panel</button>
             </div>
         </div>
 
         <div class="profile-card" id="pawanProfile">
-            <h1 style="color: #00ff00; margin-top: 0; letter-spacing: 3px;">✔ ACCESS GRANTED</h1>
+            <h1 style="color: #ff0055; font-size: 1.5rem; margin-top: 0; letter-spacing: 2px;">✔ ACCESS GRANTED</h1>
             <img class="my-pic" src="https://i.ibb.co/h1Drx6cc/image.jpg" alt="Pawan">
-            <h2 style="color: #ffffff; margin-top: 15px; letter-spacing: 2px;">PAWAN</h2>
-            <p style="color: #00ff00; font-size: 1.1rem; margin-bottom: 5px;">[ System Administrator & Coder ]</p>
-            <p style="color: #ff0055; font-size: 0.95rem; font-weight: bold; letter-spacing: 1px;">"SYSTEM TOTALLY OVERRIDDEN"</p>
+            <h2 style="color: #ffffff; margin-top: 15px; letter-spacing: 2px;">PAWAN SHARMA</h2>
+            <p style="color: #00ff00; font-size: 1.1rem; margin-bottom: 5px;">[ Chief Cyber Commander ]</p>
+            <p style="color: #ffffff; font-size: 0.9rem; font-style: italic; background: #ff0055; display: inline-block; padding: 5px 12px; border-radius: 4px; font-weight: bold; margin-top: 10px;">"SYSTEM TOTALLY OVERRIDDEN" 💀🔥</p>
         </div>
 
     </div>
 
     <script>
         var lines = [
-            "<span style='color: #yellow;'>[!] Initializing Termux exploit framework...</span>",
-            "[+] Connecting to secure mirror repositories...",
-            "[+] Loading package: toilet & figlet... SUCCESS.",
-            "<span style='color: #00ffff;'>[INFO] Target Mainframe Found: 127.0.0.1</span>",
-            "[+] Injecting root payload into local server...",
-            "[+] Bypassing firewall security layers...",
-            "<span style='color: #ff0055;'>[WARNING] Security alert triggered... Disabling logs.</span>",
-            "[+] Deleting trace logs... CLEANED.",
-            "-------------------------------------------------",
-            "<span style='color: #00ff00;'>[SUCCESS] CRITICAL ACCESS ACQUIRED.</span>",
-            "[SYSTEM CENTRAL] Transferring control to PAWAN..."
+            "<span style='color: yellow;'>[!] Initializing Advance Exploit Engine v3.0...</span>",
+            "[+] Fetching IP address targets... DONE.",
+            "[+] Injecting Trojan script into database...",
+            "--> Downloading files: [██░░░░░░░░░░] 20%",
+            "--> Downloading files: [██████░░░░░░] 50%",
+            "--> Downloading files: [████████████] 100% SUCCESS.",
+            "<span style='color: #00ffff;'>[INFO] Deactivating Local Firewall... Done.</span>",
+            "<span style='color: #ff0055;'>[CRITICAL] Triggering System Mainframe Crash...</span>",
+            "3...",
+            "2...",
+            "1..."
         ];
 
         var currentLine = 0;
 
-        def startTyping() {
+        function startTyping() {
             if (currentLine < lines.length) {
                 var screen = document.getElementById("logScreen");
                 screen.innerHTML += lines[currentLine] + "<br>";
                 screen.scrollTop = screen.scrollHeight;
                 currentLine++;
-                setTimeout(startTyping, 900); // Har line 0.9 sec me aayegi tezi se
+                setTimeout(startTyping, 700); 
             } else {
-                // Blast Effect Effect
-                setTimeout(function() {
-                    document.getElementById("terminalContent").style.display = "none";
-                    document.getElementById("topBar").style.display = "none";
-                    document.getElementById("pawanProfile").style.display = "block";
-                }, 1200);
+                // RED ALERT DHAMAKA EFFECT
+                document.body.style.backgroundColor = "#200000"; 
+                document.getElementById("mainBox").style.borderColor = "#ff0000"; 
+                document.getElementById("mainBox").style.boxShadow = "0 0 30px #ff0000";
+                document.getElementById("terminalContent").style.display = "none";
+                document.getElementById("topBar").style.display = "none";
+                
+                // Show Alert text and Profile
+                document.getElementById("redAlert").style.display = "block";
+                document.getElementById("pawanProfile").style.display = "block";
             }
         }
 
-        function triggerDhamaka() {
+        function triggerSuperDhamaka() {
             document.getElementById("hackBtn").style.display = "none";
             var screen = document.getElementById("logScreen");
-            screen.innerHTML = "pawan@cybernet:~# python panel.py<br>";
+            screen.innerHTML = "pawan@cybernet:~# python advance_panel.py<br>";
             startTyping();
         }
     </script>
 
 </body>
 </html>
-
 
