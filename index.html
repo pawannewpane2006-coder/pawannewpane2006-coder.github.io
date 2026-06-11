@@ -18,22 +18,32 @@
             overflow: hidden;
         }
         .terminal {
-            text-align: center;
+            width: 85%;
+            max-width: 500px;
+            text-align: left;
             border: 2px solid #00ff00;
-            padding: 30px;
+            padding: 20px;
             background: rgba(0, 255, 0, 0.05);
             box-shadow: 0 0 20px #00ff00;
             border-radius: 10px;
         }
         h1 {
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            animation: blink 1.5s infinite;
+            text-align: center;
+            letter-spacing: 2px;
+            margin-top: 0;
         }
-        p {
-            font-size: 1.2rem;
-            color: #ffffff;
+        .console {
+            height: 150px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            color: #00ff00;
+        }
+        .btn-container {
+            text-align: center;
         }
         .btn {
             background-color: #00ff00;
@@ -46,38 +56,62 @@
             border-radius: 5px;
             box-shadow: 0 0 10px #00ff00;
             text-transform: uppercase;
-            margin-top: 20px;
         }
         .btn:hover {
             background-color: #00cc00;
             box-shadow: 0 0 20px #00cc00;
-        }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
         }
     </style>
 </head>
 <body>
 
     <div class="terminal">
-        <h1>System Override Active</h1>
-        <p>Welcome to Pawan's Live Cyber Network</p>
+        <h1>SYSTEM OVERRIDE</h1>
         
-        <audio id="cyberSound" loop>
-            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-        </audio>
+        <div class="console" id="logScreen">
+            [SYSTEM] Waiting for authorization...<br>
+            [SYSTEM] Click below to Bypass and Enter Network.
+        </div>
 
-        <button class="btn" onclick="playCyberSound()">Bypass Firewall & Enter</button>
+        <div class="btn-container">
+            <button class="btn" id="hackBtn" onclick="startHacking()">Bypass Firewall</button>
+        </div>
     </div>
 
     <script>
-        function playCyberSound() {
-            var audio = document.getElementById("cyberSound");
-            audio.play().catch(function(error) {
-                console.log("Play failed:", error);
-            });
-            alert("🔥 Cyber System Initialized! Welcome, Pawan is watching you.");
+        var lines = [
+            "[INFO] Initializing exploit framework...",
+            "[INFO] Bypassing firewall security layers...",
+            "[SUCCESS] Firewall breached successfully!",
+            "[INFO] Injecting root exploit into mainframe...",
+            "[SUCCESS] Root access granted!",
+            "---------------------------------------",
+            "[SYSTEM CENTRAL] ACCESS GRANTED.",
+            "[REDIRECTING] Entering Pawan's Secret Network... 🚀"
+        ];
+
+        var currentLine = 0;
+
+        function startHacking() {
+            document.getElementById("hackBtn").style.display = "none";
+            var screen = document.getElementById("logScreen");
+            screen.innerHTML = "";
+            printLog();
+        }
+
+        function printLog() {
+            if (currentLine < lines.length) {
+                var screen = document.getElementById("logScreen");
+                screen.innerHTML += lines[currentLine] + "<br>";
+                screen.scrollTop = screen.scrollHeight;
+                currentLine++;
+                setTimeout(printLog, 1000); 
+            } else {
+                // Hacking khatam hote hi automatic is website par le jayega
+                setTimeout(function() {
+                    window.location.href = "https://www.instagram.com/lieutenantpawansharma?igsh=MWFkMTR4ejRveDN5Ng=="; 
+                }, 1500);
+            }
         }
     </script>
 
