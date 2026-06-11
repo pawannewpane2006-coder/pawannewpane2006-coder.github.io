@@ -61,12 +61,31 @@
             background-color: #00cc00;
             box-shadow: 0 0 20px #00cc00;
         }
+        /* Pawan's Photo Card Styling */
+        .profile-card {
+            display: none;
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .my-pic {
+            width: 180px;
+            height: 180px;
+            border-radius: 15px; /* Thoda rounded look ke liye */
+            border: 3px solid #00ff00;
+            box-shadow: 0 0 15px #00ff00;
+            object-fit: cover;
+            margin-top: 15px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="terminal">
-        <h1>SYSTEM OVERRIDE</h1>
+    <div class="terminal" id="mainTerminal">
+        <h1 id="titleText">SYSTEM OVERRIDE</h1>
         
         <div class="console" id="logScreen">
             [SYSTEM] Waiting for authorization...<br>
@@ -75,6 +94,13 @@
 
         <div class="btn-container">
             <button class="btn" id="hackBtn" onclick="startHacking()">Bypass Firewall</button>
+        </div>
+
+        <div class="profile-card" id="pawanProfile">
+            <img class="my-pic" src="https://i.ibb.co/h1Drx6cc/image.jpg" alt="Pawan">
+            <h2 style="color: #ffffff; margin-top: 15px; letter-spacing: 2px;">PAWAN</h2>
+            <p style="color: #00ff00; font-size: 1.1rem; margin-bottom: 5px;">[ System Administrator & Coder ]</p>
+            <p style="color: #888888; font-size: 0.9rem; font-style: italic;">"Attitude matters, hacking rulez!"</p>
         </div>
     </div>
 
@@ -87,7 +113,7 @@
             "[SUCCESS] Root access granted!",
             "---------------------------------------",
             "[SYSTEM CENTRAL] ACCESS GRANTED.",
-            "[REDIRECTING] Entering Pawan's Secret Network... 🚀"
+            "[WELCOME] Loading Developer Profile Core... 🚀"
         ];
 
         var currentLine = 0;
@@ -107,9 +133,11 @@
                 currentLine++;
                 setTimeout(printLog, 1000); 
             } else {
-                // Hacking khatam hote hi automatic is website par le jayega
+                // Hacking finish hote hi photo card show hoga
                 setTimeout(function() {
-                    window.location.href = "https://www.instagram.com/lieutenantpawansharma?igsh=MWFkMTR4ejRveDN5Ng=="; 
+                    document.getElementById("logScreen").style.display = "none";
+                    document.getElementById("titleText").innerHTML = "ACCESS GRANTED";
+                    document.getElementById("pawanProfile").style.display = "block";
                 }, 1500);
             }
         }
